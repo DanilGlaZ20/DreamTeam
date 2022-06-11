@@ -5,18 +5,19 @@ namespace DreamTeam.GraphQL.Services
     public interface IPlayerService
     {
         
-        IQueryable<Player> GetAllPlayers();
+        IQueryable<Player> GetAllPlayers();//всех игроков
+        IQueryable<Team> GetAllTeams();//все команды
         
-        Player GetPlayerById(int id);
+        Player GetPlayerById(int id);//игрока по id
+        Coach GetCoachById(int id);//тренера по id
 
-        Player UpdatePlayer(Player player, int id);
+        Player UpdatePlayer(Player player, int id);//изменить игрока
 
-        Player AddPlayer(Player player);
+        Player AddPlayer(Player player);//добавить игрока
 
-        Player DeletePlayer(int id);
+        Player DeletePlayer(int id);//удалить игрока по id
+        
 
-        Coach CheckCoach(string name);
-
-        Team AddTeam(Team team);
+        Coach AddCoach(Coach coach);//добавить тренера
     }
 }

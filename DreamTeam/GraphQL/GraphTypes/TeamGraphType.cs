@@ -15,6 +15,5 @@ namespace DreamTeam.GraphQL.GraphTypes
             Field(p => p.WorkTeam, false, typeof(CoachGraphType)).Description("this coach");
             Field(p => p.Player, true, typeof(PlayerGraphType));
         }
-
     }
 }

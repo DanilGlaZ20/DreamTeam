@@ -40,39 +40,33 @@ namespace DreamTeam.GraphQL.Mutation
                     return player;
 
 
-                    //var newTeam = new Team(){ID = player.ID,
-                    //WorkTeam = _service.CheckCoach(workTeam)};
-                    //var team = _service.AddTeam(newTeam);
-
-
-                    //return new Player()
-                    //{ Name = name,Number = number, //Team=team};
+                    
 
                 });
-             Field<TeamGraphType>("createTeam",
+             Field<CoachGraphType>("createCoach",
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<StringGraphType>> {Name = "title"},
-                    new QueryArgument<NonNullGraphType<IntGraphType>> {Name = "budget"},
-                    new QueryArgument<NonNullGraphType<StringGraphType>> {Name = "liga"}
+                    new QueryArgument<NonNullGraphType<StringGraphType>> {Name = "name"},
+                    new QueryArgument<NonNullGraphType<StringGraphType>> {Name = "style"},
+                    new QueryArgument<NonNullGraphType<StringGraphType>> {Name = "experience"}
 
                 ),
                 resolve: tContext =>
                 {
 
-                    var title = tContext.GetArgument<string>("title");
-                    var budget = tContext.GetArgument<int>("budget");
-                    var liga = tContext.GetArgument<string>("liga");
+                    var name = tContext.GetArgument<string>("name");
+                    var style = tContext.GetArgument<string>("style");
+                    var experience= tContext.GetArgument<int>("experience");
 
 
-                    var newTeam = new Team()
+                    var newCoach = new Coach()
                     {
-                        Title = title,
-                        Budget = budget,
-                        Liga = liga
+                        Name = name,
+                        Style = style,
+                        Experience = experience
 
                     };
-                    var team = _service.AddTeam(newTeam);
-                    return team;
+                    var coach = _service.AddCoach(newCoach);
+                    return coach;
                 });
 
 
